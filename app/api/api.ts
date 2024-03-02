@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 // API url is kept public for now. In real production this should be in .env file
@@ -15,3 +15,16 @@ export const Users = () =>
     queryKey: ["users"],
     queryFn: fetchUsers,
   });
+
+// deleting user
+const deleteUser = async (userId: string) =>
+  await axios.delete(`${url}/users/${userId}`);
+
+export const DeleteUser = () => {
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: deleteUser,
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["users"] }),
+  });
+  return mutation;
+};

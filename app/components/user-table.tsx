@@ -3,7 +3,7 @@ import { User, UserTableProps } from "../lib/definitions";
 
 export default function UserTable({
   blockedUsers,
-  handleBlockedUsers,
+  handleUser,
 }: UserTableProps) {
   const { data: users, isLoading, error } = Users();
 
@@ -33,11 +33,14 @@ export default function UserTable({
                       ? "bg-red-400 hover:bg-red-500"
                       : "bg-green-500 hover:bg-green-600"
                   } `}
-                  onClick={() => handleBlockedUsers(user.id)}
+                  onClick={() => handleUser("block", user.id)}
                 >
                   {blockedUsers.includes(user.id) ? "Unblock" : "Block"}
                 </button>
-                <button className="btn bg-red-500 hover:bg-red-600">
+                <button
+                  className="btn bg-red-500 hover:bg-red-600"
+                  onClick={() => handleUser("delete", user.id)}
+                >
                   Delete
                 </button>
               </div>

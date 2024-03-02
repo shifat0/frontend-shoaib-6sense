@@ -7,7 +7,14 @@ export interface User {
   createdAt: string;
 }
 
-export type UserTableProps = {
+export interface ConfirmationModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+  operation: string;
+}
+
+export interface UserTableProps {
   blockedUsers: string[];
-  handleBlockedUsers: (param: string) => void;
+  handleUser: (param1: string, param2: string) => void
 };
