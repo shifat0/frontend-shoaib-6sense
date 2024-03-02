@@ -7,6 +7,13 @@ export interface User {
   createdAt: string;
 }
 
+export interface CreateUserData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+}
+
 export interface ConfirmationModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -16,5 +23,5 @@ export interface ConfirmationModalProps {
 
 export interface UserTableProps {
   blockedUsers: string[];
-  handleUser: (param1: string, param2: string) => void
-};
+  handleUser: (param1: string, param2: string) => void;
+}
