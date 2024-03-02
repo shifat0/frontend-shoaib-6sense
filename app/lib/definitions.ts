@@ -6,3 +6,8 @@ export interface User {
   phoneNumber: string;
   createdAt: string;
 }
+
+export type UserTableProps = {
+  blockedUsers: string[];
+  handleBlockedUsers: (param: string) => void;
+};
