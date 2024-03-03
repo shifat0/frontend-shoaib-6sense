@@ -4,6 +4,7 @@ import { User, UserTableProps } from "../lib/definitions";
 export default function UserTable({
   blockedUsers,
   handleUser,
+  handleDetailsModal,
 }: UserTableProps) {
   const { data: users, isLoading, error } = Users();
 
@@ -26,7 +27,9 @@ export default function UserTable({
             </td>
             <td className="t-row">
               <div className="flex items-center justify-center gap-3">
-                <button className="btn">Details</button>
+                <button className="btn" onClick={() => handleDetailsModal(user.id)}>
+                  Details
+                </button>
                 <button
                   className={`btn ${
                     blockedUsers.includes(user.id)

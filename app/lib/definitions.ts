@@ -1,3 +1,5 @@
+import { FormValues } from "./form-validation";
+
 export interface User {
   id: string;
   firstName: string;
@@ -7,7 +9,7 @@ export interface User {
   createdAt: string;
 }
 
-export interface CreateUserData {
+export interface UserFormData {
   firstName: string;
   lastName: string;
   email: string;
@@ -21,7 +23,14 @@ export interface ConfirmationModalProps {
   operation: string;
 }
 
+export interface DetailsModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  id: string;
+}
+
 export interface UserTableProps {
   blockedUsers: string[];
   handleUser: (param1: string, param2: string) => void;
+  handleDetailsModal: (param: string) => void;
 }

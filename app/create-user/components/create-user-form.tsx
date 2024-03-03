@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const userFormSchema = z.object({
   firstName: z.string().min(3, "First Name is required"),
-  lastName: z.string().min(3, "First Name is required"),
+  lastName: z.string().min(3, "Last Name is required"),
   email: z
     .string()
     .min(1, "Email is required")
